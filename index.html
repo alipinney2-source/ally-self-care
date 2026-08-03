@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#6b3f74">
+  <meta name="description" content="Ally's Self Care: healthy habits for adventurous lives.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/css/app.css">
+  <title>Ally's Self Care</title>
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">ALPHA 1</p>
+      <h1>Ally's Self Care</h1>
+      <p>Healthy habits for adventurous lives</p>
+    </div>
+    <button id="themeToggle" class="icon-button" aria-label="Toggle dark mode">☾</button>
+  </header>
+
+  <main>
+    <section id="homeView" class="view active">
+      <div class="date-nav">
+        <button id="previousDay" aria-label="Previous day">‹</button>
+        <input id="selectedDate" type="date" aria-label="Selected date">
+        <button id="nextDay" aria-label="Next day">›</button>
+      </div>
+
+      <div id="dayReminder"></div>
+
+      <article class="card welcome-card">
+        <div>
+          <p class="eyebrow">DAILY BRIEFING</p>
+          <h2 id="greeting">Good morning, Ally</h2>
+          <p id="briefingText" class="muted"></p>
+        </div>
+        <div class="progress-ring" id="dailyProgressRing">
+          <span id="dailyProgressValue">0%</span>
+        </div>
+      </article>
+
+      <div class="metric-grid" id="homeMetrics"></div>
+
+      <article class="card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THIS WEEK</p>
+            <h2>70,000-step goal</h2>
+          </div>
+          <strong id="weeklyStepsLabel">0 / 70,000</strong>
+        </div>
+        <div class="progress-track"><span id="weeklyStepsBar"></span></div>
+        <p id="weeklyStepsHelp" class="muted"></p>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">TODAY'S JOURNEY</p>
+        <h2>Daily check-in</h2>
+
+        <div class="form-grid">
+          <label>
+            Weight (lb)
+            <input id="weightInput" inputmode="decimal" placeholder="e.g. 158.4">
+          </label>
+          <label>
+            Steps
+            <input id="stepsInput" inputmode="numeric" placeholder="e.g. 10450">
+          </label>
+          <label>
+            Sleep hours
+            <input id="sleepHoursInput" inputmode="numeric" min="0" max="24" placeholder="7">
+          </label>
+          <label>
+            Sleep minutes
+            <input id="sleepMinutesInput" inputmode="numeric" min="0" max="59" placeholder="30">
+          </label>
+          <label>
+            Energy (1–10)
+            <input id="energyInput" inputmode="numeric" min="1" max="10" placeholder="7">
+          </label>
+          <label>
+            Mood
+            <select id="moodInput">
+              <option value="">Choose</option>
+              <option>Great</option>
+              <option>Good</option>
+              <option>Okay</option>
+              <option>Tired</option>
+              <option>Stressed</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Daily note
+          <input id="dailyNoteInput" placeholder="e.g. Pizza night 🍕">
+        </label>
+
+        <button id="saveCheckInButton" class="primary full-width">Save check-in</button>
+        <div id="checkInMessage"></div>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">FUEL</p>
+        <h2>Today's nutrition</h2>
+        <div id="homeNutrition"></div>
+        <button class="secondary full-width go-to-nutrition">Open nutrition</button>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">CELEBRATE PROGRESS</p>
+        <h2>Wins This Week</h2>
+        <div id="weeklyWins"></div>
+      </article>
+    </section>
+
+    <section id="nutritionView" class="view">
+      <div class="date-nav">
+        <button id="nutritionPreviousDay" aria-label="Previous nutrition day">‹</button>
+        <input id="nutritionDate" type="date" aria-label="Nutrition date">
+        <button id="nutritionNextDay" aria-label="Next nutrition day">›</button>
+      </div>
+
+      <article class="card">
+        <p class="eyebrow">DAILY TOTALS</p>
+        <h2>Nutrition</h2>
+        <p class="muted">Copy the day's totals across from Team RH.</p>
+
+        <div class="form-grid">
+          <label>
+            Calories (kcal)
+            <input id="caloriesInput" inputmode="numeric">
+          </label>
+          <label>
+            Protein (g)
+            <input id="proteinInput" inputmode="decimal">
+          </label>
+          <label>
+            Fibre (g)
+            <input id="fibreInput" inputmode="decimal">
+          </label>
+          <label>
+            Water (ml)
+            <input id="waterInput" inputmode="numeric">
+          </label>
+          <label>
+            Carbs (g, optional)
+            <input id="carbsInput" inputmode="decimal">
+          </label>
+          <label>
+            Fat (g, optional)
+            <input id="fatInput" inputmode="decimal">
+          </label>
+        </div>
+
+        <label>
+          Food note
+          <input id="foodNoteInput" placeholder="e.g. Ate out, pizza night or travel day">
+        </label>
+
+        <button id="saveNutritionButton" class="primary full-width">Save nutrition</button>
+        <div id="nutritionMessage"></div>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">TODAY</p>
+        <h2>Nutrition progress</h2>
+        <div id="nutritionProgress"></div>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">THIS WEEK</p>
+        <h2>Nutrition summary</h2>
+        <div id="weeklyNutrition"></div>
+      </article>
+    </section>
+
+    <section id="insightsView" class="view">
+      <article class="card">
+        <p class="eyebrow">LIVE DATA</p>
+        <h2>Insights</h2>
+        <p class="muted">This page reads the saved data afresh every time it opens.</p>
+        <div id="insightSummary"></div>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">MONDAY TO SUNDAY</p>
+        <h2>Step history</h2>
+        <div id="stepHistory"></div>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">RECENT</p>
+        <h2>Weight history</h2>
+        <div id="weightHistory"></div>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">RECENT</p>
+        <h2>Nutrition history</h2>
+        <div id="nutritionHistory"></div>
+      </article>
+    </section>
+
+    <section id="settingsView" class="view">
+      <article class="card">
+        <p class="eyebrow">PERSONAL TARGETS</p>
+        <h2>My Goals</h2>
+
+        <div class="form-grid">
+          <label>
+            Weekly steps
+            <input id="weeklyStepsGoalInput" inputmode="numeric">
+          </label>
+          <label>
+            Calories (kcal)
+            <input id="calorieGoalInput" inputmode="numeric">
+          </label>
+          <label>
+            Protein (g)
+            <input id="proteinGoalInput" inputmode="decimal">
+          </label>
+          <label>
+            Fibre (g)
+            <input id="fibreGoalInput" inputmode="decimal">
+          </label>
+          <label>
+            Water (ml)
+            <input id="waterGoalInput" inputmode="numeric">
+          </label>
+        </div>
+
+        <button id="saveGoalsButton" class="primary full-width">Save goals</button>
+        <div id="goalsMessage"></div>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">YOUR DATA</p>
+        <h2>Backup and restore</h2>
+        <p class="muted">Your information is stored in this browser. Export a backup regularly.</p>
+        <div class="button-row">
+          <button id="exportButton" class="secondary">Export backup</button>
+          <button id="importButton" class="secondary">Import backup</button>
+        </div>
+        <input id="importFileInput" type="file" accept=".json" hidden>
+        <button id="resetButton" class="danger full-width">Reset app data</button>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">ABOUT</p>
+        <h2>Ally's Self Care</h2>
+        <p>Version 2.0.0 Alpha 1</p>
+        <p class="muted">Healthy habits for adventurous lives.</p>
+      </article>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-button active" data-view="homeView"><span>⌂</span>Home</button>
+    <button class="nav-button" data-view="nutritionView"><span>🍽</span>Nutrition</button>
+    <button class="nav-button" data-view="insightsView"><span>↗</span>Insights</button>
+    <button class="nav-button" data-view="settingsView"><span>⚙</span>Goals</button>
+  </nav>
+
+  <script type="module" src="/js/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+      navigator.serviceWorker.register("/sw.js");
+    }
+  </script>
+</body>
+</html>
