@@ -1,36 +1,39 @@
-ALLY'S SELF CARE 2.2.0 - BETA 2
+ALLY'S SELF CARE 2.3.0 - BETA 3 REFINEMENT
 
 Healthy habits for adventurous lives.
 
-FIXED
+THIS RELEASE ADDS NO NEW MODULES.
 
-- Fitness menu now responds correctly
-- Strength, Activity and Exercise Library sections open correctly
-- Workouts A, B and C open correctly
-- Activity saving and deletion work
-- Exercise Library opens correctly
-- Live Insights continue to refresh after saves
-- Selected-date behaviour remains shared across the app
-- Service-worker cache updated so the new release replaces Beta 1
+It concentrates on refinement, consistency and daily usability.
 
-IMPROVED
+REFINED
 
-- Larger, mobile-friendly Fitness menu
-- Clearer Workout, Activity and Exercise Library sections
-- Optional activity notes
-- Better responsive layout for smaller screens
+- More polished visual hierarchy
+- Better spacing and typography
+- Clearer selected-date navigation
+- Improved button and input feedback
+- Smooth progress updates
+- Compact daily completion strip for Weight, Steps, Sleep and Nutrition
+- Better dark mode surfaces
+- Cleaner Fitness menu and exercise cards
+- Expand/collapse indicators in the Exercise Library
+- Fitness section remembers which area you were using
+- More useful desktop layout
+- Better mobile responsiveness
+- Save confirmations now remain visible after the screen refreshes
+- Navigation accessibility improved
 
 HOW TO DEPLOY
 
 1. Download and extract this ZIP.
-2. Copy all files and folders inside Allys_Self_Care_Beta_2.
-3. Paste them into your local ally-self-care folder.
+2. Copy everything inside Allys_Self_Care_Beta_3_Refinement.
+3. Paste it into your local ally-self-care folder.
 4. Replace existing files when Windows asks.
 5. Open GitHub Desktop.
-6. Summary: Beta 2
+6. Summary: Beta 3 refinement
 7. Commit to main.
 8. Push origin.
 9. Wait around one minute.
 10. Refresh https://ally-self-care.vercel.app
 
-If the old page still appears, refresh once more. The service-worker cache name has changed for Beta 2.
+The service-worker cache name has changed again, so the latest design should replace Beta 2 after refresh.

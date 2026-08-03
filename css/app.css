@@ -181,3 +181,174 @@ label{display:block;font-size:.82rem;color:var(--muted);margin:8px 0 5px}
 @media(max-width:620px){
   .fitness-menu,.workout-buttons,.guide-grid{grid-template-columns:1fr}
 }
+
+/* Beta 3 refinement */
+:root{
+  --radius-lg:22px;
+  --radius-md:15px;
+  --surface-soft:linear-gradient(180deg,rgba(255,255,255,.96),rgba(255,255,255,.9));
+}
+:root[data-theme="dark"]{
+  --surface-soft:linear-gradient(180deg,rgba(36,30,37,.98),rgba(36,30,37,.92));
+}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top right, rgba(141,102,149,.10), transparent 30rem),
+    var(--background);
+}
+.app-header{
+  padding:18px max(16px, env(safe-area-inset-left)) 16px;
+  backdrop-filter:blur(12px);
+}
+.app-header h1{font-size:1.4rem;letter-spacing:-.02em}
+.app-header p{font-size:.86rem}
+main{padding-top:18px}
+.card{
+  border-radius:var(--radius-lg);
+  background:var(--surface-soft);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:focus-within{box-shadow:0 14px 34px rgba(65,38,70,.12)}
+.date-nav{
+  position:sticky;
+  top:91px;
+  z-index:12;
+  padding:8px;
+  margin:0 -4px 12px;
+  background:color-mix(in srgb, var(--background) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-radius:16px;
+}
+.date-nav button{
+  min-width:44px;
+  transition:transform .15s ease, background .15s ease;
+}
+.date-nav button:active{transform:scale(.94)}
+input,select{
+  min-height:46px;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+input:focus,select:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+.primary,.secondary,.danger{
+  min-height:46px;
+  transition:transform .15s ease, filter .15s ease;
+}
+.primary:active,.secondary:active,.danger:active{transform:scale(.985)}
+.primary:hover{filter:brightness(1.04)}
+.metric{
+  border:1px solid color-mix(in srgb, var(--accent) 10%, var(--border));
+  transition:transform .15s ease;
+}
+.metric:hover{transform:translateY(-1px)}
+.progress-track span{transition:width .35s ease}
+.completion-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-bottom:12px;
+}
+.completion-chip{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  min-height:42px;
+  padding:8px 9px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:var(--card);
+  color:var(--muted);
+  font-size:.76rem;
+  font-weight:750;
+}
+.completion-chip.done{
+  background:#e8f4ed;
+  color:#24573e;
+  border-color:#cde6d7;
+}
+:root[data-theme="dark"] .completion-chip.done{
+  background:#20372b;
+  color:#bfe6cd;
+  border-color:#315541;
+}
+.welcome-card{
+  overflow:hidden;
+  position:relative;
+}
+.welcome-card::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:5px;
+  background:linear-gradient(var(--accent),var(--accent-2));
+}
+.progress-ring{
+  box-shadow:inset 0 0 0 1px var(--border);
+}
+.nutrition-card,.list-card,.exercise-card{
+  background:color-mix(in srgb, var(--card) 92%, var(--accent-soft));
+}
+.fitness-menu-button{
+  min-height:110px;
+  transition:transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.fitness-menu-button:hover{transform:translateY(-2px)}
+.fitness-menu-button.active{
+  box-shadow:inset 0 0 0 1px var(--accent);
+}
+.exercise-details summary{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.exercise-details summary::-webkit-details-marker{display:none}
+.exercise-details summary::after{
+  content:"+";
+  font-size:1.2rem;
+  color:var(--accent);
+}
+.exercise-details[open] summary::after{content:"−"}
+.bottom-nav{
+  backdrop-filter:blur(14px);
+  background:color-mix(in srgb, var(--card) 92%, transparent);
+}
+.nav-button{
+  min-height:60px;
+  transition:color .15s ease, background .15s ease;
+}
+.nav-button.active{
+  background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--accent-soft) 65%, transparent));
+}
+.list-row strong{font-variant-numeric:tabular-nums}
+@media(min-width:900px){
+  main{max-width:980px}
+  #homeView{
+    display:grid;
+    grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);
+    gap:13px;
+  }
+  #homeView > .date-nav,
+  #homeView > #dayReminder,
+  #homeView > #todayCompletionStrip,
+  #homeView > .welcome-card,
+  #homeView > .metric-grid{
+    grid-column:1 / -1;
+  }
+  #homeView > .metric-grid{margin-bottom:0}
+  #homeView > .card:nth-of-type(2),
+  #homeView > .card:nth-of-type(3){
+    align-self:start;
+  }
+}
+@media(max-width:620px){
+  .completion-strip{grid-template-columns:repeat(2,1fr)}
+  .app-header h1{font-size:1.25rem}
+  .date-nav{top:88px}
+}

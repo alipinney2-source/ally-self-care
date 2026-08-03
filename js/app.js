@@ -56,6 +56,7 @@ function setSelectedDate(value) {
   state.selectedDate = value || localDate();
   save(state);
   renderAll();
+  window.scrollTo({top:0, behavior:"smooth"});
 }
 
 function moveDate(days) {
@@ -184,6 +185,14 @@ function renderFitness() {
   renderWorkoutHistory();
   renderActivityHistory();
   renderExerciseLibrary();
+  const rememberedPanel = sessionStorage.getItem("allyFitnessPanel");
+  if (rememberedPanel && document.getElementById(rememberedPanel)) {
+    $$(".fitness-panel").forEach((panel) => panel.classList.remove("active"));
+    $(`#${rememberedPanel}`).classList.add("active");
+    $$(".fitness-menu-button").forEach((button) => {
+      button.classList.toggle("active", button.dataset.fitnessPanel === rememberedPanel);
+    });
+  }
 }
 
 function openFitnessPanel(panelId, clickedButton) {
@@ -191,7 +200,9 @@ function openFitnessPanel(panelId, clickedButton) {
   $(`#${panelId}`).classList.add("active");
   $$(".fitness-menu-button").forEach((button) => button.classList.remove("active"));
   clickedButton.classList.add("active");
+  sessionStorage.setItem("allyFitnessPanel", panelId);
   renderFitness();
+  $(`#${panelId}`).scrollIntoView({behavior:"smooth", block:"start"});
 }
 
 function renderWorkout(type) {
@@ -282,11 +293,11 @@ function saveActivity() {
 
   state.activities.push(activity);
   save(state);
-  $("#activityMessage").innerHTML = `<div class="success">Activity saved.</div>`;
   $("#activityMinutes").value = "";
   $("#activityDistance").value = "";
   $("#activityNotes").value = "";
   renderAll();
+  $("#activityMessage").innerHTML = `<div class="success">Activity saved.</div>`;
 }
 
 function deleteActivity(id) {
@@ -329,6 +340,23 @@ function renderExerciseLibrary() {
     </details>`).join("");
 }
 
+
+
+function renderTodayCompletion() {
+  const date = selectedDate();
+  const daily = dailyEntry(date);
+  const nutrition = nutritionEntry(date);
+  const checks = [
+    {label:"Weight", done:Boolean(daily.weight), icon:"⚖️"},
+    {label:"Steps", done:Boolean(daily.steps), icon:"👣"},
+    {label:"Sleep", done:Boolean(daily.sleepHours || daily.sleepMinutes), icon:"😴"},
+    {label:"Nutrition", done:Boolean(nutrition.calories || nutrition.protein || nutrition.fibre || nutrition.waterMl), icon:"🍽"}
+  ];
+  $("#todayCompletionStrip").innerHTML = checks.map((item) => `
+    <div class="completion-chip ${item.done ? "done" : ""}">
+      <span>${item.icon}</span><span>${item.label}</span>${item.done ? "<span>✓</span>" : ""}
+    </div>`).join("");
+}
 
 function renderHome() {
   const date = selectedDate();
@@ -396,6 +424,7 @@ function renderHome() {
   ].join("");
 
   renderWeeklyWins();
+  renderTodayCompletion();
 }
 
 function renderNutrition() {
@@ -556,8 +585,8 @@ function saveCheckIn() {
   }
 
   save(state);
-  $("#checkInMessage").innerHTML = `<div class="success">Check-in saved for ${date}.</div>`;
   renderAll();
+  $("#checkInMessage").innerHTML = `<div class="success">Check-in saved for ${date}.</div>`;
 }
 
 function saveNutrition() {
@@ -572,8 +601,8 @@ function saveNutrition() {
     note: $("#foodNoteInput").value
   };
   save(state);
-  $("#nutritionMessage").innerHTML = `<div class="success">Nutrition saved for ${date}.</div>`;
   renderAll();
+  $("#nutritionMessage").innerHTML = `<div class="success">Nutrition saved for ${date}.</div>`;
 }
 
 function saveGoals() {
@@ -586,16 +615,20 @@ function saveGoals() {
     waterMl: Number($("#waterGoalInput").value) || 2500
   };
   save(state);
-  $("#goalsMessage").innerHTML = `<div class="success">Goals saved.</div>`;
   renderAll();
+  $("#goalsMessage").innerHTML = `<div class="success">Goals saved.</div>`;
 }
 
 $$(".nav-button").forEach((button) => {
   button.addEventListener("click", () => {
     $$(".view").forEach((view) => view.classList.remove("active"));
     $(`#${button.dataset.view}`).classList.add("active");
-    $$(".nav-button").forEach((item) => item.classList.remove("active"));
+    $$(".nav-button").forEach((item) => {
+      item.classList.remove("active");
+      item.removeAttribute("aria-current");
+    });
     button.classList.add("active");
+    button.setAttribute("aria-current", "page");
     renderAll();
   });
 });
