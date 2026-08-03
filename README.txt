@@ -1,39 +1,23 @@
-ALLY'S SELF CARE 2.3.0 - BETA 3 REFINEMENT
+ALLY'S SELF CARE 2.4.0 - BETA 4
 
-Healthy habits for adventurous lives.
+FIXED
+- Desktop navigation no longer leaves Home visible behind Fitness, Nutrition, Insights or Goals.
+- Corrected the desktop Home media query and CSS brace structure.
+- Updated the offline cache so the corrected CSS and workouts module are deployed.
 
-THIS RELEASE ADDS NO NEW MODULES.
+DEPLOY
+1. Extract this ZIP.
+2. Copy all files and folders into your local ally-self-care project and replace existing files.
+3. Open GitHub Desktop on v3-development.
+4. Summary: Fix: desktop navigation and CSS
+5. Commit to v3-development.
+6. Push origin.
+7. After deployment, open the preview URL or live site and press Ctrl+F5 once.
 
-It concentrates on refinement, consistency and daily usability.
-
-REFINED
-
-- More polished visual hierarchy
-- Better spacing and typography
-- Clearer selected-date navigation
-- Improved button and input feedback
-- Smooth progress updates
-- Compact daily completion strip for Weight, Steps, Sleep and Nutrition
-- Better dark mode surfaces
-- Cleaner Fitness menu and exercise cards
-- Expand/collapse indicators in the Exercise Library
-- Fitness section remembers which area you were using
-- More useful desktop layout
-- Better mobile responsiveness
-- Save confirmations now remain visible after the screen refreshes
-- Navigation accessibility improved
-
-HOW TO DEPLOY
-
-1. Download and extract this ZIP.
-2. Copy everything inside Allys_Self_Care_Beta_3_Refinement.
-3. Paste it into your local ally-self-care folder.
-4. Replace existing files when Windows asks.
-5. Open GitHub Desktop.
-6. Summary: Beta 3 refinement
-7. Commit to main.
-8. Push origin.
-9. Wait around one minute.
-10. Refresh https://ally-self-care.vercel.app
-
-The service-worker cache name has changed again, so the latest design should replace Beta 2 after refresh.
+TEST
+- Home opens.
+- Fitness replaces Home.
+- Nutrition replaces Home.
+- Insights replaces Home.
+- Goals replaces Home.
+- Workout A, B and C open.

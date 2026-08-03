@@ -594,16 +594,29 @@ function saveGoals() {
   $("#goalsMessage").innerHTML = `<div class="success">Goals saved.</div>`;
 }
 
+function showView(viewId) {
+  const targetView = document.getElementById(viewId);
+  if (!targetView) return;
+
+  $$(".view").forEach((view) => {
+    view.classList.toggle("active", view === targetView);
+    view.setAttribute("aria-hidden", view === targetView ? "false" : "true");
+  });
+
+  $$(".nav-button").forEach((button) => {
+    const isActive = button.dataset.view === viewId;
+    button.classList.toggle("active", isActive);
+    if (isActive) button.setAttribute("aria-current", "page");
+    else button.removeAttribute("aria-current");
+  });
+
+  sessionStorage.setItem("allyCurrentView", viewId);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 $$(".nav-button").forEach((button) => {
   button.addEventListener("click", () => {
-    $$(".view").forEach((view) => view.classList.remove("active"));
-    $(`#${button.dataset.view}`).classList.add("active");
-    $$(".nav-button").forEach((item) => {
-      item.classList.remove("active");
-      item.removeAttribute("aria-current");
-    });
-    button.classList.add("active");
-    button.setAttribute("aria-current", "page");
+    showView(button.dataset.view);
     renderAll();
   });
 });
@@ -661,3 +674,4 @@ $$(".workout-choice").forEach((button) => {
 $("#saveActivityButton").addEventListener("click", saveActivity);
 
 renderAll();
+showView(sessionStorage.getItem("allyCurrentView") || "homeView");
