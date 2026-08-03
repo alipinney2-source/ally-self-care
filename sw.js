@@ -1,4 +1,4 @@
-const CACHE_NAME = "ally-self-care-alpha-1";
+const CACHE_NAME = "ally-self-care-beta-1";
 const ASSETS = [
   "/",
   "/index.html",

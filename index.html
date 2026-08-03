@@ -12,7 +12,7 @@
 <body>
   <header class="app-header">
     <div>
-      <p class="eyebrow">ALPHA 1</p>
+      <p class="eyebrow">BETA 1</p>
       <h1>Ally's Self Care</h1>
       <p>Healthy habits for adventurous lives</p>
     </div>
@@ -113,6 +113,85 @@
         <h2>Wins This Week</h2>
         <div id="weeklyWins"></div>
       </article>
+    </section>
+
+
+    <section id="fitnessView" class="view">
+      <div class="tabs">
+        <button class="fitness-tab active" data-fitness-panel="workoutsPanel">Workouts</button>
+        <button class="fitness-tab" data-fitness-panel="activityPanel">Activity</button>
+        <button class="fitness-tab" data-fitness-panel="exerciseLibraryPanel">Exercise library</button>
+      </div>
+
+      <div id="workoutsPanel" class="fitness-panel active">
+        <article class="card">
+          <p class="eyebrow">YOUR PROGRAMME</p>
+          <h2>Full-body strength</h2>
+          <p class="muted">Three sessions each week, alongside Wednesday Pilates. Choose a workout to begin.</p>
+          <div class="workout-buttons">
+            <button class="secondary workout-choice" data-workout="A">Workout A</button>
+            <button class="secondary workout-choice" data-workout="B">Workout B</button>
+            <button class="secondary workout-choice" data-workout="C">Workout C</button>
+          </div>
+        </article>
+
+        <div id="workoutSession"></div>
+
+        <article class="card">
+          <p class="eyebrow">RECENT</p>
+          <h2>Workout history</h2>
+          <div id="workoutHistory"></div>
+        </article>
+      </div>
+
+      <div id="activityPanel" class="fitness-panel">
+        <article class="card">
+          <p class="eyebrow">MOVE YOUR BODY</p>
+          <h2>Add activity</h2>
+          <div class="form-grid">
+            <label>
+              Date
+              <input id="activityDate" type="date">
+            </label>
+            <label>
+              Activity
+              <select id="activityType">
+                <option>Walk with Ottie</option>
+                <option>Pilates</option>
+                <option>Brisk walk</option>
+                <option>Mobility</option>
+                <option>Trek training</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              Minutes
+              <input id="activityMinutes" inputmode="numeric">
+            </label>
+            <label>
+              Distance (miles)
+              <input id="activityDistance" inputmode="decimal">
+            </label>
+          </div>
+          <button id="saveActivityButton" class="primary full-width">Save activity</button>
+          <div id="activityMessage"></div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">RECENT</p>
+          <h2>Activity history</h2>
+          <div id="activityHistory"></div>
+        </article>
+      </div>
+
+      <div id="exerciseLibraryPanel" class="fitness-panel">
+        <article class="card">
+          <p class="eyebrow">MOVEMENT GUIDES</p>
+          <h2>Exercise library</h2>
+          <p class="muted">Each guide includes the purpose, suggested resistance, setup, movement and common mistakes. Clear illustrated demonstrations are planned for a later release.</p>
+          <div id="exerciseLibrary"></div>
+        </article>
+      </div>
     </section>
 
     <section id="nutritionView" class="view">
@@ -250,7 +329,7 @@
       <article class="card">
         <p class="eyebrow">ABOUT</p>
         <h2>Ally's Self Care</h2>
-        <p>Version 2.0.0 Alpha 1</p>
+        <p>Version 2.1.0 Beta 1</p>
         <p class="muted">Healthy habits for adventurous lives.</p>
       </article>
     </section>
@@ -258,6 +337,7 @@
 
   <nav class="bottom-nav">
     <button class="nav-button active" data-view="homeView"><span>⌂</span>Home</button>
+    <button class="nav-button" data-view="fitnessView"><span>●</span>Fitness</button>
     <button class="nav-button" data-view="nutritionView"><span>🍽</span>Nutrition</button>
     <button class="nav-button" data-view="insightsView"><span>↗</span>Insights</button>
     <button class="nav-button" data-view="settingsView"><span>⚙</span>Goals</button>

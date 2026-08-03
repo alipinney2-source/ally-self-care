@@ -16,7 +16,7 @@ export function localDate(date = new Date()) {
 
 export function defaults() {
   return {
-    version: "2.0.0-alpha.1",
+    version: "2.1.0-beta.1",
     selectedDate: localDate(),
     theme: "light",
     goals: {
@@ -31,6 +31,7 @@ export function defaults() {
     measurements: [],
     activities: [],
     workouts: [],
+    workoutProgress: {},
     journal: [],
     selfcare: [],
     checks: []
@@ -80,6 +81,7 @@ function merge(base, oldData) {
   });
 
   if (Array.isArray(oldData.workouts)) base.workouts = [...base.workouts, ...oldData.workouts];
+  base.workoutProgress = { ...base.workoutProgress, ...(oldData.workoutProgress || {}) };
   if (Array.isArray(oldData.sessions)) base.workouts = [...base.workouts, ...oldData.sessions];
 
   return base;
