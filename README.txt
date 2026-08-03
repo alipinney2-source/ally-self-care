@@ -1,35 +1,36 @@
-ALLY'S SELF CARE 2.1.0 - BETA 1
+ALLY'S SELF CARE 2.2.0 - BETA 2
 
 Healthy habits for adventurous lives.
 
-WHAT IS NEW
+FIXED
 
-- Dedicated Fitness tab
-- Workouts A, B and C
-- Suggested resistance, sets and repetitions
-- Setup, movement, target muscles and common mistakes for every exercise
-- Set completion buttons and effort rating
-- Workout history
-- Activity logging for Ottie walks, Pilates, brisk walks, mobility and trek training
-- Delete activity option
-- Exercise library
-- All Alpha 1 features retained
+- Fitness menu now responds correctly
+- Strength, Activity and Exercise Library sections open correctly
+- Workouts A, B and C open correctly
+- Activity saving and deletion work
+- Exercise Library opens correctly
+- Live Insights continue to refresh after saves
+- Selected-date behaviour remains shared across the app
+- Service-worker cache updated so the new release replaces Beta 1
+
+IMPROVED
+
+- Larger, mobile-friendly Fitness menu
+- Clearer Workout, Activity and Exercise Library sections
+- Optional activity notes
+- Better responsive layout for smaller screens
 
 HOW TO DEPLOY
 
 1. Download and extract this ZIP.
-2. Open the extracted Allys_Self_Care_Beta_1 folder.
-3. Copy every file and folder inside it.
-4. Paste them into your local GitHub folder named ally-self-care.
-5. Choose Replace if Windows asks.
-6. Open GitHub Desktop.
-7. Enter this Summary:
-   Beta 1
-8. Click Commit to main.
-9. Click Push origin.
-10. Wait around one minute and refresh:
-    https://ally-self-care.vercel.app
+2. Copy all files and folders inside Allys_Self_Care_Beta_2.
+3. Paste them into your local ally-self-care folder.
+4. Replace existing files when Windows asks.
+5. Open GitHub Desktop.
+6. Summary: Beta 2
+7. Commit to main.
+8. Push origin.
+9. Wait around one minute.
+10. Refresh https://ally-self-care.vercel.app
 
-IMPORTANT
-
-The exercise library deliberately uses clear written movement guides rather than the confusing placeholder stick figures from the prototype. Proper consistent illustrations remain on the roadmap.
+If the old page still appears, refresh once more. The service-worker cache name has changed for Beta 2.

@@ -16,7 +16,7 @@ export function localDate(date = new Date()) {
 
 export function defaults() {
   return {
-    version: "2.1.0-beta.1",
+    version: "2.2.0-beta.2",
     selectedDate: localDate(),
     theme: "light",
     goals: {

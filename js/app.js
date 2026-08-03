@@ -11,173 +11,30 @@ let state = load();
 
 const WORKOUTS = {
   A: [
-    { name:"Squat", resistance:"20 lb", sets:3, reps:"10", target:"Legs and glutes", setup:"Stand securely on the resistance bands with feet around hip-width apart. Hold the bar across the front of your shoulders.", movement:"Sit your hips back and down as though reaching for a chair. Keep your chest lifted, then press through the whole foot to stand.", avoid:"Knees collapsing inward, heels lifting or rushing the movement." },
-    { name:"Bent-over row", resistance:"20–30 lb", sets:3, reps:"10", target:"Upper back and arms", setup:"Stand on the bands and hinge forward from the hips with a long spine. Let the bar hang below your shoulders.", movement:"Pull the bar towards your lower ribs. Pause briefly, then lower with control.", avoid:"Rounding your back, shrugging or jerking the bar." },
-    { name:"Chest press", resistance:"20 lb", sets:3, reps:"12", target:"Chest, shoulders and triceps", setup:"Secure the door anchor behind you at chest height. Face away and hold the handles with elbows softly bent.", movement:"Press your hands forward until your arms are almost straight, then return slowly.", avoid:"Arching your lower back or locking your elbows." },
-    { name:"Romanian deadlift", resistance:"30 lb", sets:3, reps:"10", target:"Glutes and hamstrings", setup:"Stand on the bands, hold the bar in front of your thighs and soften your knees.", movement:"Push your hips backwards while the bar travels close to your legs. Stand tall by squeezing your glutes.", avoid:"Turning it into a squat or rounding your back." },
-    { name:"Shoulder press", resistance:"20 lb", sets:3, reps:"10", target:"Shoulders and triceps", setup:"Stand on the bands and hold the bar around shoulder height.", movement:"Brace your middle and press overhead. Lower smoothly to shoulder height.", avoid:"Leaning backwards or shrugging your shoulders." },
-    { name:"Pallof press", resistance:"20 lb", sets:3, reps:"10 each side", target:"Core stability", setup:"Anchor the band at chest height and stand side-on. Hold the handle close to your chest.", movement:"Press straight out while resisting the pull to rotate. Return slowly.", avoid:"Twisting towards the anchor or holding your breath." }
+    {name:"Squat",resistance:"20 lb",sets:3,reps:"10",target:"Legs and glutes",setup:"Stand securely on the bands with feet around hip-width apart. Hold the bar at shoulder height.",movement:"Sit your hips back and down, keep your chest lifted, then press through the whole foot to stand.",avoid:"Knees collapsing inward, heels lifting or rushing."},
+    {name:"Bent-over row",resistance:"20–30 lb",sets:3,reps:"10",target:"Upper back and arms",setup:"Stand on the bands and hinge forward from the hips with a long spine.",movement:"Pull the bar towards your lower ribs, pause, then lower slowly.",avoid:"Rounding your back, shrugging or jerking."},
+    {name:"Chest press",resistance:"20 lb",sets:3,reps:"12",target:"Chest, shoulders and triceps",setup:"Secure the door anchor behind you at chest height and face away.",movement:"Press your hands forwards until your arms are almost straight, then return slowly.",avoid:"Arching your lower back or locking your elbows."},
+    {name:"Romanian deadlift",resistance:"30 lb",sets:3,reps:"10",target:"Glutes and hamstrings",setup:"Stand on the bands with the bar in front of your thighs and knees softly bent.",movement:"Push your hips backwards while keeping the bar close to your legs. Stand by squeezing your glutes.",avoid:"Turning it into a squat or rounding your back."},
+    {name:"Shoulder press",resistance:"20 lb",sets:3,reps:"10",target:"Shoulders and triceps",setup:"Stand on the bands and hold the bar at shoulder height.",movement:"Brace your middle and press overhead. Lower smoothly.",avoid:"Leaning backwards or shrugging."},
+    {name:"Pallof press",resistance:"20 lb",sets:3,reps:"10 each side",target:"Core stability",setup:"Anchor the band at chest height and stand side-on.",movement:"Press straight out while resisting rotation, then return slowly.",avoid:"Twisting towards the anchor or holding your breath."}
   ],
   B: [
-    { name:"Supported reverse lunge", resistance:"Bodyweight first", sets:3, reps:"8 each side", target:"Legs, glutes and balance", setup:"Stand beside a stable chair or wall for support.", movement:"Step one foot backwards and lower only as far as comfortable. Push through the front foot to return.", avoid:"Taking too narrow a step or letting the front knee collapse inward." },
-    { name:"Standing row", resistance:"20–30 lb", sets:3, reps:"12", target:"Upper back", setup:"Anchor at chest height and face the anchor with arms extended.", movement:"Draw elbows back and gently squeeze your shoulder blades. Return with control.", avoid:"Shrugging, leaning backwards or flaring the ribs." },
-    { name:"Biceps curl", resistance:"20 lb", sets:3, reps:"12", target:"Front of upper arms", setup:"Stand on the bands with arms by your sides and palms facing forward.", movement:"Keep elbows tucked and curl the hands towards your shoulders.", avoid:"Swinging your body or letting elbows drift forwards." },
-    { name:"Triceps pressdown", resistance:"20 lb", sets:3, reps:"12", target:"Back of upper arms", setup:"Anchor overhead and hold the handles with elbows bent and tucked.", movement:"Straighten your arms towards the floor, then return slowly.", avoid:"Moving your upper arms or hunching your shoulders." },
-    { name:"Glute kickback", resistance:"20 lb", sets:3, reps:"12 each side", target:"Glutes", setup:"Attach the ankle strap and face the anchor while holding something stable.", movement:"Move one leg backwards without rotating your hips. Return slowly.", avoid:"Arching your back or swinging the leg." },
-    { name:"Standing wood chop", resistance:"20 lb", sets:3, reps:"10 each side", target:"Core and hips", setup:"Anchor at around shoulder height and stand side-on with both hands on the handle.", movement:"Move diagonally across your body while allowing the hips and upper body to turn together.", avoid:"Pulling only with the arms or rushing the return." }
+    {name:"Supported reverse lunge",resistance:"Bodyweight first",sets:3,reps:"8 each side",target:"Legs, glutes and balance",setup:"Stand beside a stable chair or wall.",movement:"Step one foot backwards and lower only as far as comfortable. Push through the front foot to return.",avoid:"A narrow step or the front knee collapsing inward."},
+    {name:"Standing row",resistance:"20–30 lb",sets:3,reps:"12",target:"Upper back",setup:"Anchor at chest height and face it with your arms extended.",movement:"Draw your elbows back and squeeze your shoulder blades. Return with control.",avoid:"Shrugging, leaning backwards or flaring your ribs."},
+    {name:"Biceps curl",resistance:"20 lb",sets:3,reps:"12",target:"Front of upper arms",setup:"Stand on the bands with arms by your sides and palms forwards.",movement:"Keep elbows tucked and curl your hands towards your shoulders.",avoid:"Swinging or moving your elbows forwards."},
+    {name:"Triceps pressdown",resistance:"20 lb",sets:3,reps:"12",target:"Back of upper arms",setup:"Anchor overhead and keep your elbows tucked.",movement:"Straighten your arms towards the floor, then return slowly.",avoid:"Moving your upper arms or hunching your shoulders."},
+    {name:"Glute kickback",resistance:"20 lb",sets:3,reps:"12 each side",target:"Glutes",setup:"Attach the ankle strap and hold something stable.",movement:"Move one leg backwards without rotating your hips. Return slowly.",avoid:"Arching your back or swinging your leg."},
+    {name:"Standing wood chop",resistance:"20 lb",sets:3,reps:"10 each side",target:"Core and hips",setup:"Anchor at shoulder height and stand side-on with both hands on the handle.",movement:"Move diagonally across your body while your hips and upper body turn together.",avoid:"Pulling only with your arms or rushing."}
   ],
   C: [
-    { name:"Deadlift", resistance:"30 lb", sets:3, reps:"10", target:"Glutes, hamstrings and back", setup:"Stand securely on the bands with the bar in front of your thighs.", movement:"Hinge from the hips, then drive through your feet to stand tall.", avoid:"Rounding your spine or pulling with your arms." },
-    { name:"Chest fly", resistance:"20 lb", sets:3, reps:"12", target:"Chest and shoulders", setup:"Anchor behind at chest height. Start with arms open and elbows softly bent.", movement:"Bring your hands together in a wide arc, then reopen with control.", avoid:"Straightening the elbows fully or overstretching behind you." },
-    { name:"Lateral raise", resistance:"20 lb", sets:3, reps:"12", target:"Side shoulders", setup:"Stand on the bands with arms resting by your sides.", movement:"Raise the arms out to around shoulder height and lower slowly.", avoid:"Shrugging or lifting higher than shoulder level." },
-    { name:"Face pull", resistance:"20 lb", sets:3, reps:"12", target:"Upper back and rear shoulders", setup:"Anchor at face height and hold the handles with arms extended.", movement:"Pull towards eyebrow level with elbows wide. Squeeze the shoulder blades.", avoid:"Leaning backwards or letting elbows drop." },
-    { name:"Suitcase hold and march", resistance:"20–30 lb", sets:3, reps:"30–45 sec each side", target:"Core and posture", setup:"Hold resistance on one side while standing tall.", movement:"March slowly without leaning towards or away from the load. Switch sides.", avoid:"Rushing, slumping or holding your breath." },
-    { name:"Plank", resistance:"No band", sets:3, reps:"20–30 sec", target:"Core and shoulders", setup:"Use a wall, worktop, knees or toes. Place hands or forearms securely.", movement:"Hold a straight line while breathing normally.", avoid:"Dropping the hips, lifting them too high or holding your breath." }
+    {name:"Deadlift",resistance:"30 lb",sets:3,reps:"10",target:"Glutes, hamstrings and back",setup:"Stand securely on the bands with the bar in front of your thighs.",movement:"Hinge from your hips, then drive through your feet to stand tall.",avoid:"Rounding your spine or pulling with your arms."},
+    {name:"Chest fly",resistance:"20 lb",sets:3,reps:"12",target:"Chest and shoulders",setup:"Anchor behind you at chest height with arms open and elbows softly bent.",movement:"Bring your hands together in a wide arc, then reopen with control.",avoid:"Locking your elbows or overstretching behind you."},
+    {name:"Lateral raise",resistance:"20 lb",sets:3,reps:"12",target:"Side shoulders",setup:"Stand on the bands with arms resting by your sides.",movement:"Raise your arms to around shoulder height and lower slowly.",avoid:"Shrugging or lifting above shoulder height."},
+    {name:"Face pull",resistance:"20 lb",sets:3,reps:"12",target:"Upper back and rear shoulders",setup:"Anchor at face height and hold the handles with arms extended.",movement:"Pull towards eyebrow level with elbows wide.",avoid:"Leaning backwards or dropping your elbows."},
+    {name:"Suitcase hold and march",resistance:"20–30 lb",sets:3,reps:"30–45 sec each side",target:"Core and posture",setup:"Hold resistance on one side and stand tall.",movement:"March slowly without leaning. Switch sides.",avoid:"Rushing, slumping or holding your breath."},
+    {name:"Plank",resistance:"No band",sets:3,reps:"20–30 sec",target:"Core and shoulders",setup:"Use a wall, worktop, knees or toes.",movement:"Hold a straight line while breathing normally.",avoid:"Dropping or lifting your hips too far."}
   ]
 };
-
-function renderFitness() {
-  renderWorkoutHistory();
-  renderActivityHistory();
-  renderExerciseLibrary();
-  $("#activityDate").value = selectedDate();
-}
-
-function renderWorkout(type) {
-  const exercises = WORKOUTS[type];
-  $("#workoutSession").innerHTML = `
-    <article class="card">
-      <p class="eyebrow">WORKOUT ${type}</p>
-      <h2>Full-body strength session</h2>
-      <p class="muted">Warm up for around five minutes. Rest for 60–90 seconds between sets.</p>
-      <div id="activeExercises"></div>
-      <button id="completeWorkoutButton" class="primary full-width">Complete Workout ${type}</button>
-    </article>`;
-
-  $("#activeExercises").innerHTML = exercises.map((exercise, index) => `
-    <div class="exercise-card" data-exercise="${exercise.name}">
-      <div class="exercise-title">
-        <div>
-          <h3>${index + 1}. ${exercise.name}</h3>
-          <span class="pill">${exercise.resistance}</span>
-        </div>
-        <strong>${exercise.sets} × ${exercise.reps}</strong>
-      </div>
-      <div class="guide-grid">
-        <div class="guide-box"><strong>Setup</strong>${exercise.setup}</div>
-        <div class="guide-box"><strong>Movement</strong>${exercise.movement}</div>
-      </div>
-      <p class="muted"><strong>Works:</strong> ${exercise.target}</p>
-      <p class="muted"><strong>Avoid:</strong> ${exercise.avoid}</p>
-      <div class="set-buttons">
-        ${Array.from({length:exercise.sets},(_,setIndex)=>`<button class="set-button">Set ${setIndex+1}</button>`).join("")}
-      </div>
-      <div class="effort-buttons">
-        <button>Too easy</button><button>Just right</button><button>Too hard</button>
-      </div>
-    </div>`).join("");
-
-  $$(".set-button").forEach(button => button.addEventListener("click", () => button.classList.toggle("done")));
-  $$(".effort-buttons button").forEach(button => button.addEventListener("click", () => {
-    button.parentElement.querySelectorAll("button").forEach(item => item.classList.remove("selected"));
-    button.classList.add("selected");
-  }));
-
-  $("#completeWorkoutButton").addEventListener("click", () => {
-    const exerciseResults = [...$("#activeExercises").querySelectorAll(".exercise-card")].map(card => ({
-      name: card.dataset.exercise,
-      setsCompleted: card.querySelectorAll(".set-button.done").length,
-      effort: card.querySelector(".effort-buttons .selected")?.textContent || ""
-    }));
-    state.workouts.push({
-      id: Date.now(),
-      date: selectedDate(),
-      type,
-      exercises: exerciseResults
-    });
-    save(state);
-    alert(`Workout ${type} saved. Nicely done.`);
-    
-$$(".fitness-tab").forEach(button => {
-  button.addEventListener("click", () => {
-    $$(".fitness-panel").forEach(panel => panel.classList.remove("active"));
-    $(`#${button.dataset.fitnessPanel}`).classList.add("active");
-    $$(".fitness-tab").forEach(item => item.classList.remove("active"));
-    button.classList.add("active");
-    renderFitness();
-  });
-});
-
-$$(".workout-choice").forEach(button => {
-  button.addEventListener("click", () => renderWorkout(button.dataset.workout));
-});
-
-$("#saveActivityButton").addEventListener("click", saveActivity);
-
-renderAll();
-    renderWorkout(type);
-  });
-
-  $("#workoutSession").scrollIntoView({ behavior:"smooth", block:"start" });
-}
-
-function renderWorkoutHistory() {
-  const rows = [...state.workouts].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,10);
-  $("#workoutHistory").innerHTML = rows.length ? rows.map(row => `
-    <div class="list-card">
-      <div class="list-row"><strong>Workout ${row.type || ""}</strong><span>${row.date}</span></div>
-      <p class="history-meta">${row.exercises?.reduce((sum,item)=>sum+(item.setsCompleted||0),0) || 0} sets completed</p>
-    </div>`).join("") : `<p class="muted">No strength workouts logged yet.</p>`;
-}
-
-function saveActivity() {
-  const record = {
-    id: Date.now(),
-    date: $("#activityDate").value || selectedDate(),
-    type: $("#activityType").value,
-    minutes: $("#activityMinutes").value,
-    distance: $("#activityDistance").value
-  };
-  state.activities.push(record);
-  save(state);
-  $("#activityMessage").innerHTML = `<div class="success">Activity saved.</div>`;
-  $("#activityMinutes").value = "";
-  $("#activityDistance").value = "";
-  renderAll();
-}
-
-function deleteActivity(id) {
-  if (!confirm("Delete this activity?")) return;
-  state.activities = state.activities.filter(item => Number(item.id) !== Number(id));
-  save(state);
-  renderAll();
-}
-
-function renderActivityHistory() {
-  const rows = [...state.activities].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,15);
-  $("#activityHistory").innerHTML = rows.length ? rows.map(row => `
-    <div class="list-card">
-      <div class="list-row"><strong>${row.type}</strong><span>${row.date}</span></div>
-      <p class="history-meta">${row.minutes ? row.minutes+" minutes" : "Duration not entered"}${row.distance ? " · "+row.distance+" miles" : ""}</p>
-      <button class="danger full-width delete-activity" data-id="${row.id}">Delete</button>
-    </div>`).join("") : `<p class="muted">No activities logged yet.</p>`;
-  $$(".delete-activity").forEach(button => button.addEventListener("click", () => deleteActivity(button.dataset.id)));
-}
-
-function renderExerciseLibrary() {
-  const all = [...WORKOUTS.A, ...WORKOUTS.B, ...WORKOUTS.C];
-  const unique = [...new Map(all.map(item => [item.name,item])).values()];
-  $("#exerciseLibrary").innerHTML = unique.map(exercise => `
-    <details class="exercise-card exercise-details">
-      <summary>${exercise.name} · ${exercise.resistance}</summary>
-      <p><strong>Target:</strong> ${exercise.target}</p>
-      <div class="guide-grid">
-        <div class="guide-box"><strong>Setup</strong>${exercise.setup}</div>
-        <div class="guide-box"><strong>Movement</strong>${exercise.movement}</div>
-      </div>
-      <p class="muted"><strong>Common mistakes:</strong> ${exercise.avoid}</p>
-    </details>`).join("");
-}
 
 
 const $ = (selector) => document.querySelector(selector);
@@ -320,6 +177,158 @@ function calculateDailyProgress(date) {
   const completed = checks.filter(Boolean).length;
   return Math.round((completed / checks.length) * 100);
 }
+
+
+function renderFitness() {
+  $("#activityDate").value = selectedDate();
+  renderWorkoutHistory();
+  renderActivityHistory();
+  renderExerciseLibrary();
+}
+
+function openFitnessPanel(panelId, clickedButton) {
+  $$(".fitness-panel").forEach((panel) => panel.classList.remove("active"));
+  $(`#${panelId}`).classList.add("active");
+  $$(".fitness-menu-button").forEach((button) => button.classList.remove("active"));
+  clickedButton.classList.add("active");
+  renderFitness();
+}
+
+function renderWorkout(type) {
+  const exercises = WORKOUTS[type];
+  $("#workoutSession").innerHTML = `
+    <article class="card">
+      <p class="eyebrow">WORKOUT ${type}</p>
+      <h2>Full-body strength session</h2>
+      <p class="muted">Warm up for around five minutes and rest for 60–90 seconds between sets.</p>
+      <div id="activeExercises"></div>
+      <button id="completeWorkoutButton" class="primary full-width">Complete Workout ${type}</button>
+    </article>`;
+
+  $("#activeExercises").innerHTML = exercises.map((exercise, index) => `
+    <div class="exercise-card" data-exercise="${exercise.name}">
+      <div class="exercise-title">
+        <div><h3>${index + 1}. ${exercise.name}</h3><span class="pill">${exercise.resistance}</span></div>
+        <strong>${exercise.sets} × ${exercise.reps}</strong>
+      </div>
+      <div class="guide-grid">
+        <div class="guide-box"><strong>Setup</strong>${exercise.setup}</div>
+        <div class="guide-box"><strong>Movement</strong>${exercise.movement}</div>
+      </div>
+      <p class="muted"><strong>Works:</strong> ${exercise.target}</p>
+      <p class="muted"><strong>Avoid:</strong> ${exercise.avoid}</p>
+      <div class="set-buttons">
+        ${Array.from({length: exercise.sets}, (_, setIndex) => `<button class="set-button">Set ${setIndex + 1}</button>`).join("")}
+      </div>
+      <div class="effort-buttons">
+        <button>Too easy</button><button>Just right</button><button>Too hard</button>
+      </div>
+    </div>`).join("");
+
+  $$(".set-button").forEach((button) => {
+    button.addEventListener("click", () => button.classList.toggle("done"));
+  });
+
+  $$(".effort-buttons button").forEach((button) => {
+    button.addEventListener("click", () => {
+      button.parentElement.querySelectorAll("button").forEach((item) => item.classList.remove("selected"));
+      button.classList.add("selected");
+    });
+  });
+
+  $("#completeWorkoutButton").addEventListener("click", () => {
+    const exerciseResults = [...$("#activeExercises").querySelectorAll(".exercise-card")].map((card) => ({
+      name: card.dataset.exercise,
+      setsCompleted: card.querySelectorAll(".set-button.done").length,
+      effort: card.querySelector(".effort-buttons .selected")?.textContent || ""
+    }));
+
+    state.workouts.push({
+      id: Date.now(),
+      date: selectedDate(),
+      type,
+      exercises: exerciseResults
+    });
+
+    save(state);
+    alert(`Workout ${type} saved. Nicely done.`);
+    renderAll();
+    renderWorkout(type);
+  });
+
+  $("#workoutSession").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function renderWorkoutHistory() {
+  const rows = [...state.workouts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 10);
+  $("#workoutHistory").innerHTML = rows.length
+    ? rows.map((row) => `
+      <div class="list-card">
+        <div class="list-row"><strong>Workout ${row.type || ""}</strong><span>${row.date}</span></div>
+        <p class="history-meta">${row.exercises?.reduce((sum, item) => sum + (item.setsCompleted || 0), 0) || 0} sets completed</p>
+      </div>`).join("")
+    : `<p class="muted">No strength workouts logged yet.</p>`;
+}
+
+function saveActivity() {
+  const activity = {
+    id: Date.now(),
+    date: $("#activityDate").value || selectedDate(),
+    type: $("#activityType").value,
+    minutes: $("#activityMinutes").value,
+    distance: $("#activityDistance").value,
+    notes: $("#activityNotes").value
+  };
+
+  state.activities.push(activity);
+  save(state);
+  $("#activityMessage").innerHTML = `<div class="success">Activity saved.</div>`;
+  $("#activityMinutes").value = "";
+  $("#activityDistance").value = "";
+  $("#activityNotes").value = "";
+  renderAll();
+}
+
+function deleteActivity(id) {
+  if (!confirm("Delete this activity?")) return;
+  state.activities = state.activities.filter((item) => Number(item.id) !== Number(id));
+  save(state);
+  renderAll();
+}
+
+function renderActivityHistory() {
+  const rows = [...state.activities].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 15);
+  $("#activityHistory").innerHTML = rows.length
+    ? rows.map((row) => `
+      <div class="list-card">
+        <div class="list-row"><strong>${row.type}</strong><span>${row.date}</span></div>
+        <p class="history-meta">${row.minutes ? `${row.minutes} minutes` : "Duration not entered"}${row.distance ? ` · ${row.distance} miles` : ""}</p>
+        ${row.notes ? `<p class="history-meta">${row.notes}</p>` : ""}
+        <button class="danger full-width delete-activity" data-id="${row.id}">Delete</button>
+      </div>`).join("")
+    : `<p class="muted">No activities logged yet.</p>`;
+
+  $$(".delete-activity").forEach((button) => {
+    button.addEventListener("click", () => deleteActivity(button.dataset.id));
+  });
+}
+
+function renderExerciseLibrary() {
+  const allExercises = [...WORKOUTS.A, ...WORKOUTS.B, ...WORKOUTS.C];
+  const uniqueExercises = [...new Map(allExercises.map((exercise) => [exercise.name, exercise])).values()];
+
+  $("#exerciseLibrary").innerHTML = uniqueExercises.map((exercise) => `
+    <details class="exercise-card exercise-details">
+      <summary>${exercise.name} · ${exercise.resistance}</summary>
+      <p><strong>Works:</strong> ${exercise.target}</p>
+      <div class="guide-grid">
+        <div class="guide-box"><strong>Setup</strong>${exercise.setup}</div>
+        <div class="guide-box"><strong>Movement</strong>${exercise.movement}</div>
+      </div>
+      <p class="muted"><strong>Common mistakes:</strong> ${exercise.avoid}</p>
+    </details>`).join("");
+}
+
 
 function renderHome() {
   const date = selectedDate();
@@ -631,5 +640,16 @@ $("#resetButton").addEventListener("click", () => {
   state = load();
   renderAll();
 });
+
+
+$$(".fitness-menu-button").forEach((button) => {
+  button.addEventListener("click", () => openFitnessPanel(button.dataset.fitnessPanel, button));
+});
+
+$$(".workout-choice").forEach((button) => {
+  button.addEventListener("click", () => renderWorkout(button.dataset.workout));
+});
+
+$("#saveActivityButton").addEventListener("click", saveActivity);
 
 renderAll();

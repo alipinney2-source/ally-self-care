@@ -12,7 +12,7 @@
 <body>
   <header class="app-header">
     <div>
-      <p class="eyebrow">BETA 1</p>
+      <p class="eyebrow">BETA 2</p>
       <h1>Ally's Self Care</h1>
       <p>Healthy habits for adventurous lives</p>
     </div>
@@ -117,17 +117,29 @@
 
 
     <section id="fitnessView" class="view">
-      <div class="tabs">
-        <button class="fitness-tab active" data-fitness-panel="workoutsPanel">Workouts</button>
-        <button class="fitness-tab" data-fitness-panel="activityPanel">Activity</button>
-        <button class="fitness-tab" data-fitness-panel="exerciseLibraryPanel">Exercise library</button>
-      </div>
+      <article class="card fitness-launcher">
+        <p class="eyebrow">FITNESS</p>
+        <h2>Move, strengthen and prepare for adventure</h2>
+        <p class="muted">Choose what you would like to do. Each section opens independently and remains easy to reach on mobile.</p>
 
-      <div id="workoutsPanel" class="fitness-panel active">
+        <div class="fitness-menu">
+          <button class="fitness-menu-button active" data-fitness-panel="strengthPanel">
+            <span>💪</span><strong>Strength</strong><small>Workouts A, B and C</small>
+          </button>
+          <button class="fitness-menu-button" data-fitness-panel="activityPanel">
+            <span>🐾</span><strong>Activity</strong><small>Ottie walks, Pilates and more</small>
+          </button>
+          <button class="fitness-menu-button" data-fitness-panel="libraryPanel">
+            <span>📚</span><strong>Exercise Library</strong><small>Technique and resistance guidance</small>
+          </button>
+        </div>
+      </article>
+
+      <div id="strengthPanel" class="fitness-panel active">
         <article class="card">
           <p class="eyebrow">YOUR PROGRAMME</p>
           <h2>Full-body strength</h2>
-          <p class="muted">Three sessions each week, alongside Wednesday Pilates. Choose a workout to begin.</p>
+          <p class="muted">Three sessions each week alongside Wednesday Pilates. Choose a workout to begin.</p>
           <div class="workout-buttons">
             <button class="secondary workout-choice" data-workout="A">Workout A</button>
             <button class="secondary workout-choice" data-workout="B">Workout B</button>
@@ -161,6 +173,8 @@
                 <option>Brisk walk</option>
                 <option>Mobility</option>
                 <option>Trek training</option>
+                <option>Cycling</option>
+                <option>Swimming</option>
                 <option>Other</option>
               </select>
             </label>
@@ -169,10 +183,14 @@
               <input id="activityMinutes" inputmode="numeric">
             </label>
             <label>
-              Distance (miles)
+              Distance (miles, optional)
               <input id="activityDistance" inputmode="decimal">
             </label>
           </div>
+          <label>
+            Notes (optional)
+            <input id="activityNotes" placeholder="e.g. Gentle walk, hilly route or felt strong">
+          </label>
           <button id="saveActivityButton" class="primary full-width">Save activity</button>
           <div id="activityMessage"></div>
         </article>
@@ -184,11 +202,11 @@
         </article>
       </div>
 
-      <div id="exerciseLibraryPanel" class="fitness-panel">
+      <div id="libraryPanel" class="fitness-panel">
         <article class="card">
           <p class="eyebrow">MOVEMENT GUIDES</p>
           <h2>Exercise library</h2>
-          <p class="muted">Each guide includes the purpose, suggested resistance, setup, movement and common mistakes. Clear illustrated demonstrations are planned for a later release.</p>
+          <p class="muted">Clear setup, movement and common-mistake guidance. Proper consistent illustrations remain on the roadmap.</p>
           <div id="exerciseLibrary"></div>
         </article>
       </div>
@@ -329,7 +347,7 @@
       <article class="card">
         <p class="eyebrow">ABOUT</p>
         <h2>Ally's Self Care</h2>
-        <p>Version 2.1.0 Beta 1</p>
+        <p>Version 2.2.0 Beta 2</p>
         <p class="muted">Healthy habits for adventurous lives.</p>
       </article>
     </section>
