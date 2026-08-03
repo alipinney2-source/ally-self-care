@@ -329,21 +329,25 @@ input:focus,select:focus{
 .list-row strong{font-variant-numeric:tabular-nums}
 @media(min-width:900px){
   main{max-width:980px}
-  #homeView{
+
+  #homeView.active{
     display:grid;
     grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);
     gap:13px;
   }
-  #homeView > .date-nav,
-  #homeView > #dayReminder,
-  #homeView > #todayCompletionStrip,
-  #homeView > .welcome-card,
-  #homeView > .metric-grid{
+
+  #homeView.active > .date-nav,
+  #homeView.active > #dayReminder,
+  #homeView.active > #todayCompletionStrip,
+  #homeView.active > .welcome-card,
+  #homeView.active > .metric-grid{
     grid-column:1 / -1;
   }
-  #homeView > .metric-grid{margin-bottom:0}
-  #homeView > .card:nth-of-type(2),
-  #homeView > .card:nth-of-type(3){
+
+  #homeView.active > .metric-grid{margin-bottom:0}
+
+  #homeView.active > .card:nth-of-type(2),
+  #homeView.active > .card:nth-of-type(3){
     align-self:start;
   }
 }

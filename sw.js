@@ -1,10 +1,11 @@
-const CACHE_NAME = "ally-self-care-beta-3";
+const CACHE_NAME = "ally-self-care-beta-4";
 const ASSETS = [
   "/",
   "/index.html",
   "/css/app.css",
   "/js/app.js",
   "/js/store.js",
+  "/js/workouts.js",
   "/manifest.webmanifest"
 ];
 
